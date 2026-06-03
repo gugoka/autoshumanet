@@ -1,0 +1,57 @@
+/* Figma Styles of your File */
+:root {
+  /* Colors */
+  --dark-orange: #d35100;
+  --orange: #f07900;
+  --light-orange: #f8a145;
+  --151515: #151515;
+  --white: #ffffff;
+  --podval-i-shapka: #1f1f1f;
+  --navedenie: #ffa94d;
+  --fon-temnoj-temy: #0a0a0a;
+
+  /* Fonts */
+  --zagolovki-font-family: Rubik-Medium, sans-serif;
+  --zagolovki-font-size: 32px;
+  --zagolovki-line-height: normal;
+  --zagolovki-font-weight: 500;
+  --zagolovki-font-style: normal;
+  --osnovnoj-tekst-font-family: Ubuntu-Regular, sans-serif;
+  --osnovnoj-tekst-font-size: 16px;
+  --osnovnoj-tekst-line-height: normal;
+  --osnovnoj-tekst-font-weight: 400;
+  --osnovnoj-tekst-font-style: normal;
+  --shapka-podzagolovki-font-family: Rubik-Regular, sans-serif;
+  --shapka-podzagolovki-font-size: 24px;
+  --shapka-podzagolovki-line-height: normal;
+  --shapka-podzagolovki-font-weight: 400;
+  --shapka-podzagolovki-font-style: normal;
+  --knopki-font-family: Rubik-Bold, sans-serif;
+  --knopki-font-size: 20px;
+  --knopki-line-height: normal;
+  --knopki-font-weight: 700;
+  --knopki-font-style: normal;
+  --bolshoj-tekst-hero-font-family: Rubik-Bold, sans-serif;
+  --bolshoj-tekst-hero-font-size: 36px;
+  --bolshoj-tekst-hero-line-height: normal;
+  --bolshoj-tekst-hero-font-weight: 700;
+  --bolshoj-tekst-hero-font-style: normal;
+  --forma-font-family: Ubuntu-Regular, sans-serif;
+  --forma-font-size: 12px;
+  --forma-line-height: normal;
+  --forma-font-weight: 400;
+  --forma-font-style: normal;
+  --zagolovki-android-font-family: Rubik-Medium, sans-serif;
+  --zagolovki-android-font-size: 22px;
+  --zagolovki-android-line-height: normal;
+  --zagolovki-android-font-weight: 500;
+  --zagolovki-android-font-style: normal;
+  --osn-tekst-pk-font-family: Ubuntu-Regular, sans-serif;
+  --osn-tekst-pk-font-size: 18px;
+  --osn-tekst-pk-line-height: normal;
+  --osn-tekst-pk-font-weight: 400;
+  --osn-tekst-pk-font-style: normal;
+
+  /* Effects */
+}
+/* Figma Color Variables of your File */
