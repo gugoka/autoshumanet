@@ -249,37 +249,38 @@
     </div>
   </footer>
 
-  <div class="modal-overlay" id="booking-modal">
-  <div class="modal-container">
-    
-    <button class="modal-close" id="modal-close-btn" aria-label="Закрыть окно">
-      <img src="./img/icons/frame-190.svg" alt="Закрыть" onerror="this.src='./frame-190.svg';" />
+<div id="booking-modal" class="booking-modal">
+  <div class="modal-content">
+    <button id="modal-close-btn" class="modal-close-button" aria-label="Закрыть форму">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
     </button>
-
-    <div class="modal-content">
-      <h2 class="modal-title">Запишитесь на шумоизоляцию</h2>
-      
-      <form class="modal-form-box" action="#" method="POST">
-        <div class="modal-inputs-group">
-          <input type="text" name="client-name" class="modal-input" placeholder="Имя" required />
-          <input type="tel" name="client-phone" class="modal-input" placeholder="Номер телефона" required />
-        </div>
-        
-        <button type="submit" class="modal-submit-btn">Записаться</button>
-      </form>
-
-      <div class="modal-phone-block">
-        <div class="modal-phone-text">Или позвоните нам сами</div>
-        <a href="tel:+7XXXXXXXXXX" class="modal-phone-link">+7 (XXX) XX-XX-XX</a>
-      </div>
-    </div>
-
     <div class="modal-logo">
-      <span>
-        <span class="modal-logo-span">AUTO</span><span class="modal-logo-span2">SHUMA</span><span class="modal-logo-span">NET</span>
-      </span>
+      <span class="logo-auto">AUTO</span><span class="logo-shuma">SHUMA</span><span class="logo-net">NET</span>
     </div>
 
+    <h3 class="modal-title">Запишитесь на шумоизоляцию</h3>
+
+    <form class="modal-form" onsubmit="event.preventDefault(); alert('Заявка успешно отправлена!'); document.getElementById('modal-close-btn').click();">
+      <div class="input-group">
+        <label for="client-name" class="input-label">Имя</label>
+        <input type="text" id="client-name" class="form-input" placeholder="Введите ваше имя" required>
+      </div>
+
+      <div class="input-group">
+        <label for="client-phone" class="input-label">Номер телефона</label>
+        <input type="tel" id="client-phone" class="form-input" placeholder="+7 (9XX) XXX-XX-XX" required>
+      </div>
+
+      <button type="submit" class="submit-btn">Записаться</button>
+    </form>
+
+    <div class="modal-footer-info">
+      <p class="footer-info-label">Или позвоните нам сами</p>
+      <a href="tel:+7XXXXXXXXXX" class="phone-button-link">+7 (XXX) XX-XX-XX</a>
+    </div>
   </div>
 </div>
 

@@ -776,268 +776,236 @@ body {
 
 
 
-/* ==========================================================================
-   МОДАЛЬНОЕ ОКНО (АДАПТИВНАЯ ФОРМА ЗАПИСИ)
-   ========================================================================== */
-
-/* Оверлей — фоновое затемнение сайта */
-.modal-overlay {
+/* ======================================
+   ФОРМА ЗАПИСИ
+   ==================================== */
+.booking-modal {
+  display: none; 
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
-  display: flex;
+  background-color: rgba(0, 0, 0, 0.85); 
+  z-index: 2000; 
+  align-items: center;
   justify-content: center;
-  align-items: center;
-  z-index: 2000;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
   padding: 20px;
+  backdrop-filter: blur(5px);
 }
 
-/* Класс активации окна из JS */
-.modal-overlay.is-active {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-/* Контейнер самой формы (сохраняет пропорции оригинала из Figma) */
-.modal-container {
-  background-color: var(--151515, #151515);
-  /* Фоновый декоративный элемент из Figma */
-  background-image: url('../img/div0.svg'); 
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  width: 100%;
-  max-width: 687px; /* Оригинальная ширина div2 */
-  min-height: 674px; /* Оригинальная высота div */
-  border-radius: 14px;
-  position: relative;
+.booking-modal.is-active {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 60px 40px 30px 40px;
-  box-sizing: border-box;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
 }
 
-/* Кнопка закрытия (крестик) */
-.modal-close {
+
+.modal-content {
+  background-color: var(--151515, #151515);
+  border: 2px solid var(--orange, #f07900);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 480px;
+  padding: 40px 30px;
+  position: relative;
+  box-shadow: 0 10px 35px rgba(240, 121, 0, 0.25);
+  animation: modalFadeIn 0.35s ease-out;
+}
+
+
+@keyframes modalFadeIn {
+  from {
+    transform: translateY(-25px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Кнопка-крестик */
+.modal-close-button {
   position: absolute;
-  top: 35px;
-  right: 35px;
+  top: 16px;
+  right: 16px;
   background: transparent;
   border: none;
   cursor: pointer;
-  width: 29px;
-  height: 29px;
+  padding: 8px; 
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease;
-  z-index: 10;
+  color: rgba(255, 255, 255);
+  transition: color 0.25s ease, transform 0.25s ease;
+  z-index: 50;
+  outline: none;
 }
 
-.modal-close:hover {
-  transform: scale(1.15);
+.modal-close-button svg {
+  width: 22px;
+  height: 22px;
+  display: block;
 }
 
-.modal-close img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+/* Эффект при наведении (на десктопах) */
+@media (hover: hover) {
+  .modal-close-button:hover {
+    color: var(--orange, #f07900); /* Фирменный оранжевый цвет */
+    transform: rotate(90deg); /* Плавный поворот на 90 градусов */
+  }
 }
 
-/* Оболочка контента */
-.modal-content {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  align-items: center;
-  width: 100%;
-  max-width: 498px; /* Оригинальная ширина frame-18 */
+/* Эффект при активном нажатии (для смартфонов) */
+.modal-close-button:active {
+  color: var(--navedenie, #ffa94d);
+  transform: scale(0.9);
+}
+
+/* Стилизация логотипа внутри формы */
+.modal-logo {
+  text-align: center;
+  font-family: var(--zagolovki-font-family, "Rubik-Medium", sans-serif);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.logo-auto, .logo-net {
+  color: var(--white, #ffffff);
+}
+
+.logo-shuma {
+  color: var(--light-orange, #f8a145);
 }
 
 /* Заголовок модального окна */
 .modal-title {
   color: var(--white, #ffffff);
-  text-align: center;
   font-family: var(--zagolovki-font-family, "Rubik-Medium", sans-serif);
-  font-size: var(--zagolovki-font-size, 32px);
-  font-weight: var(--zagolovki-font-weight, 500);
-  margin-bottom: 5px;
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 28px;
 }
 
-/* Рамка формы ввода */
-.modal-form-box {
-  border: 1px solid var(--orange, #f07900);
-  border-radius: 14px;
-  padding: 25px 32px;
+/* Структура полей ввода */
+.modal-form {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  align-items: center;
-  width: 100%;
-  box-sizing: border-box;
+  gap: 18px;
+  margin-bottom: 25px;
 }
 
-.modal-inputs-group {
+.input-group {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  width: 100%;
+  gap: 6px;
 }
 
-/* Стилизация интерактивных инпутов (вместо серых блоков Figma) */
-.modal-input {
-  background: #464646;
-  border: none;
-  border-radius: 5px;
-  padding: 0 24px;
+.input-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--osnovnoj-tekst-font-family, "Ubuntu-Regular", sans-serif);
+  font-size: 14px;
+  text-align: left;
+}
+
+/* Инпуты */
+.form-input {
+  background-color: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: var(--white, #ffffff);
+  font-family: var(--osnovnoj-tekst-font-family, "Ubuntu-Regular", sans-serif);
+  font-size: 16px;
+  padding: 14px 16px;
   width: 100%;
-  height: 49px;
-  color: #ffffff;
-  font-family: var(--forma-font-family, "Ubuntu-Regular", sans-serif);
-  font-size: 16px; /* 16px предотвращает авто-зум полей ввода на iOS устройствах */
-  box-sizing: border-box;
   outline: none;
-  transition: border 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.modal-input:focus {
-  border: 1px solid var(--light-orange, #f8a145);
+.form-input:focus {
+  border-color: var(--orange, #f07900);
+  box-shadow: 0 0 8px rgba(240, 121, 0, 0.35);
 }
 
-.modal-input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-/* Кнопка отправки */
-.modal-submit-btn {
-  background: var(--orange, #f07900);
-  border-radius: 10px;
-  color: #ffffff;
-  font-family: var(--knopki-font-family, "Rubik-Bold", sans-serif);
-  font-size: var(--knopki-font-size, 20px);
-  font-weight: var(--knopki-font-weight, 700);
-  width: 100%;
-  max-width: 230px;
-  height: 49px;
-  cursor: pointer;
+/* Кнопка отправки формы */
+.submit-btn {
+  background-color: var(--orange, #f07900);
   border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s ease, transform 0.1s ease;
+  border-radius: 8px;
+  color: var(--white, #ffffff);
+  cursor: pointer;
+  font-family: var(--knopki-font-family, "Rubik-Bold", sans-serif);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 15px;
+  text-align: center;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  width: 100%;
+  margin-top: 5px;
 }
 
-.modal-submit-btn:hover {
-  background: var(--navedenie, #ffa94d);
+.submit-btn:hover {
+  background-color: var(--navedenie, #ffa94d);
 }
 
-.modal-submit-btn:active {
+.submit-btn:active {
   transform: scale(0.98);
 }
 
-/* Блок альтернативной связи */
-.modal-phone-block {
+/* Нижняя текстовая зона и прямая кнопка вызова */
+.modal-footer-info {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 12px;
-  align-items: center;
-  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
 }
 
-.modal-phone-text {
+.footer-info-label {
+  color: rgba(255, 255, 255, 0.55);
+  font-family: var(--osnovnoj-tekst-font-family, "Ubuntu-Regular", sans-serif);
+  font-size: 15px;
+}
+
+.phone-button-link {
+  display: inline-block;
+  border: 2px solid var(--orange, #f07900);
+  border-radius: 8px;
   color: var(--white, #ffffff);
-  text-align: center;
-  font-family: var(--shapka-podzagolovki-font-family, "Rubik-Regular", sans-serif);
-  font-size: var(--shapka-podzagolovki-font-size, 24px);
+  font-family: var(--knopki-font-family, "Rubik-Bold", sans-serif);
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px 22px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.modal-phone-link {
-  border-radius: 10px;
-  border: 2.5px solid var(--orange, #f07900);
-  padding: 10px 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 248px;
-  height: 50px;
-  color: #f07900;
-  font-family: var(--shapka-podzagolovki-font-family, "Rubik-Regular", sans-serif);
-  font-size: var(--shapka-podzagolovki-font-size, 24px);
-  transition: background 0.3s ease, color 0.3s ease;
-  box-sizing: border-box;
+.phone-button-link:hover {
+  background-color: rgba(240, 121, 0, 0.1);
+  border-color: var(--navedenie, #ffa94d);
 }
 
-.modal-phone-link:hover {
-  background: var(--orange, #f07900);
-  color: var(--white, #ffffff);
+/* Фиксация фонового скролла */
+body.no-scroll {
+  overflow: hidden;
 }
 
-/* Текстовый логотип формы */
-.modal-logo {
-  font-family: var(--shapka-podzagolovki-font-family, "Rubik-Regular", sans-serif);
-  font-size: 24px;
-  text-align: center;
-  margin-top: 20px;
-}
-
-.modal-logo-span { color: var(--white, #ffffff); }
-.modal-logo-span2 { color: var(--light-orange, #f8a145); }
-
-/* ==========================================================================
-   АДАПТИВНЫЙ МЕДИА-ЗАПРОС ДЛЯ МОБИЛЬНЫХ ЭКРАНОВ (Менее 768px)
-   ========================================================================== */
-@media (max-width: 768px) {
-  .modal-container {
-    min-height: auto;
-    padding: 50px 20px 25px 20px;
-    background-size: cover;
-  }
-  
-  .modal-close {
-    top: 15px;
-    right: 15px;
-    width: 24px;
-    height: 24px;
+/* Адаптивный резиновый дизайн под мобильные устройства */
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 30px 20px;
   }
   
   .modal-title {
-    font-size: 24px;
-  }
-  
-  .modal-form-box {
-    padding: 20px 15px;
-    gap: 20px;
-  }
-  
-  .modal-phone-text {
-    font-size: 18px;
-  }
-  
-  .modal-phone-link {
     font-size: 20px;
-    max-width: 100%;
-    height: 46px;
+    margin-bottom: 20px;
   }
   
-  .modal-submit-btn {
-    max-width: 100%;
-    height: 46px;
-    font-size: 18px;
-  }
-
-  .modal-logo {
-    font-size: 20px;
+  .form-input, .submit-btn, .phone-button-link {
+    font-size: 15px;
+    padding: 12px;
   }
 }
