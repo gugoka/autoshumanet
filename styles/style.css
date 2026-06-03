@@ -1,4 +1,4 @@
-/* Общий базовый сброс и глобальные стили */
+/* глобальные стили */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -65,7 +65,7 @@ body {
   background: var(--navedenie, #ffa94d);
 }
 
-/* Шапка сайта (Header) */
+/* Шапка сайта */
 .header {
   background: var(--151515, #151515);
   height: auto;
@@ -492,17 +492,16 @@ body {
 }
 
 
-/* Кнопка скрыта на ПК */
 .hamburger {
   display: none;
 }
 
-/* Контакты в меню скрыты на ПК */
 .mobile-menu-contacts {
   display: none;
 }
+
 /* ==========================================================================
-   МЕДИА-ЗАПРОСЫ (Адаптация под мобильные устройства и планшеты)
+   МЕДИА-ЗАПРОСЫ 
    ========================================================================== */
 
 @media (max-width: 992px) {
@@ -536,7 +535,7 @@ body {
 
 @media (max-width: 576px) {
   /* ====================================
-     1. Мобильная шапка и Гамбургер-меню
+     1. Мобильная шапка и гамбургер-меню
      ==================================== */
   .header__wrapper {
     display: flex;
@@ -586,16 +585,16 @@ body {
     background-color: var(--orange, #f07900);
   }
 
-  /* Выезжающая панель меню (как на фото "Меню темное телефон") */
+  /* Выезжающая панель меню  */
   .nav {
     position: fixed;
     top: 0;
-    right: -100%; /* Полностью скрыто за экраном справа */
+    right: -100%;
     width: 75%;
     max-width: 300px;
     height: 100vh;
     background-color: var(--151515, #151515);
-    border-left: 2px solid var(--orange, #f07900); /* Строгий оранжевый акцент на грани */
+    border-left: 1px solid var(--orange, #f07900); 
     padding: 100px 30px 40px 30px;
     display: flex;
     flex-direction: column;
@@ -607,7 +606,7 @@ body {
   }
 
   .nav.is-active {
-    right: 0; /* Плавно выезжает */
+    right: 0; 
   }
 
   .nav__list {
@@ -628,10 +627,10 @@ body {
     color: var(--orange, #f07900);
   }
 
-  /* Показываем блок контактов внутри выехавшего меню */
+ 
   .mobile-menu-contacts {
     display: block;
-    margin-top: auto; /* Прижимает к самому низу панели */
+    margin-top: auto; 
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 30px;
   }
@@ -642,13 +641,12 @@ body {
     color: var(--orange, #f07900);
   }
 
-  /* Блокировка прокрутки основного контента */
   body.no-scroll {
     overflow: hidden;
   }
 
   /* ====================================
-     2. Премиальный адаптив секции Hero (Изображение 1)
+     2. адаптив секции Hero 
      ==================================== */
   .hero {
     min-height: 50vh; 
@@ -658,7 +656,6 @@ body {
     position: relative;
   }
 
-  /* Затемняющий градиент поверх фото, чтобы светлые участки не перекрывали текст */
   .hero::after {
     content: '';
     position: absolute;
@@ -688,10 +685,10 @@ body {
 
   .hero__content {
     position: relative;
-    z-index: 2; /* Поднимаем над оверлеем */
+    z-index: 2; 
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Строгое левое выравнивание из дизайна */
+    align-items: flex-start; 
     text-align: left;
     width: 100%;
   }
@@ -713,7 +710,7 @@ body {
   }
 
   .hero .btn {
-    width: 100%; /* Кнопка во всю ширину мобильного контейнера */
+    width: 100%; 
     max-width: 100%;
     text-align: center;
   }
@@ -725,19 +722,17 @@ body {
   }
 }
   /* ====================================
-     ИСПРАВЛЕННЫЙ СЛАЙДЕР ДЛЯ МОБИЛОК
+      СЛАЙДЕР ДЛЯ МОБИЛОК
      ==================================== */
   .slider {
-    /* 1. Возвращаем обводку (заменяем ломающийся SVG на стабильный CSS) */
     background-image: none;
     background-color: var(--151515, #151515);
     border: 2px solid var(--orange, #f07900);
     
-    /* 2. Убираем боковые отступы, чтобы фото растянулось на весь экран */
     padding: 0 0 50px 0; 
     position: relative;
-    display: block; /* Выключаем Flex, чтобы стрелки не зажимали фото по бокам */
-    overflow: hidden; /* Сохраняем красивые скругления углов */
+    display: block; 
+    overflow: hidden; 
   }
   
   .slider__viewport {
@@ -747,15 +742,14 @@ body {
   }
 
   .slider__slide {
-    border-radius: 0; /* Убираем внутренние скругления, они теперь наследуются от рамки */
+    border-radius: 0; 
   }
 
-  /* 3. Выносим стрелки ПОВЕРХ фотографии */
   .slider__btn {
     position: absolute;
-    top: 45%; /* Центрируем по вертикали относительно фото */
+    top: 45%; 
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.6); /* Полупрозрачный темный кружок для читаемости стрелки */
+    background: rgba(0, 0, 0, 0.6); 
     border-radius: 50%;
     width: 44px;
     height: 44px;
@@ -765,7 +759,6 @@ body {
     z-index: 20;
   }
   
-  /* Отключаем десктопное увеличение при тапе, чтобы кнопка не улетала */
   .slider__btn:hover { transform: translateY(-50%); }
   .slider__btn:active { transform: translateY(-50%) scale(0.9); }
 
@@ -774,11 +767,9 @@ body {
     height: 20px;
   }
 
-  /* Прижимаем кнопки к краям экрана */
   .slider__btn--prev { left: 10px; }
   .slider__btn--next { right: 10px; }
 
   .slider__dots {
     bottom: 18px;
   }
-}

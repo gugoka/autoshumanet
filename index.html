@@ -8,40 +8,42 @@
   <link rel="stylesheet" href="./styles/vars.css">
   <link rel="stylesheet" href="./styles/style.css">
 </head>
-<body>
 
+<body>
+  <!-- Секция Шапка -->
   <header class="header">
-  <div class="container header__wrapper">
-    <a href="#" class="logo">
-      <img class="logo__img" src="./img/icons/logo-b-20.png" alt="AUTOSHUMANET Logo" />
-    </a>
-    
-    <nav class="nav">
-      <ul class="nav__list">
-        <li><a href="#about" class="nav__link">О нас</a></li>
-        <li><a href="#services" class="nav__link">Услуги</a></li>
-        <li><a href="#works" class="nav__link">Наши работы</a></li>
-        <li><a href="#contacts" class="nav__link">Контакты</a></li>
-      </ul>
+    <div class="container header__wrapper">
+      <a href="#" class="logo">
+        <img class="logo__img" src="./img/icons/logo-b-20.png" alt="AUTOSHUMANET Logo" />
+      </a>
       
-      <div class="mobile-menu-contacts">
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="#about" class="nav__link">О нас</a></li>
+          <li><a href="#services" class="nav__link">Услуги</a></li>
+          <li><a href="#works" class="nav__link">Наши работы</a></li>
+          <li><a href="#contacts" class="nav__link">Контакты</a></li>
+        </ul>
+        
+        <div class="mobile-menu-contacts">
+          <a href="tel:+7XXXXXXXXXX" class="phone-link">+7 (XXX) XX-XX-XX</a>
+        </div>
+      </nav>
+
+      <div class="header__contacts">
         <a href="tel:+7XXXXXXXXXX" class="phone-link">+7 (XXX) XX-XX-XX</a>
       </div>
-    </nav>
 
-    <div class="header__contacts">
-      <a href="tel:+7XXXXXXXXXX" class="phone-link">+7 (XXX) XX-XX-XX</a>
+      <button class="hamburger" id="hamburger-toggle" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
-
-    <button class="hamburger" id="hamburger-toggle" aria-label="Открыть меню">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
-</header>
+  </header>
 
   <main>
+    <!-- Секция Hero -->
     <section class="hero">
       <div class="hero__bg">
         <img src="./img/hero-10.png" alt="Шумоизоляция автомобиля" class="hero__img">
@@ -57,6 +59,7 @@
       </div>
     </section>
 
+    <!-- Секция О нас -->
     <section id="about" class="about section-border">
       <div class="container about__wrapper">
         <div class="about__content">
@@ -81,6 +84,7 @@
       </div>
     </section>
 
+    <!-- Секция Услуги -->
     <section id="services" class="services section-border">
       <div class="container">
         <h2 class="section-title">Услуги</h2>
@@ -138,7 +142,7 @@
       </div>
     </section>
 
-    <!-- Секция: Наши работы -->
+    <!-- Секция Наши работы -->
     <section id="works" class="works section-border">
     <div class="container">
       <h2 class="section-title">Наши работы</h2>
@@ -171,10 +175,9 @@
 
       </div>
     </section>
-
-    <!-- Подключаем логику слайдера (перед закрывающим тегом </body>) -->
     <script src="./scripts/slider.js"></script>
 
+    <!-- Секция Контакты -->
     <section id="contacts" class="contacts section-border">
       <div class="container contacts__wrapper">
         <div class="contacts__info">
@@ -195,6 +198,7 @@
     </section>
   </main>
 
+  <!-- Секция Подвал -->
   <footer class="footer">
     <div class="container">
       <div class="footer__brand">
@@ -247,8 +251,7 @@
 
 
 
-
-  <script>
+<script>
   const hamburger = document.getElementById('hamburger-toggle');
   const nav = document.querySelector('.nav');
   const navLinks = document.querySelectorAll('.nav__link');
@@ -257,10 +260,9 @@
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('is-active');
     nav.classList.toggle('is-active');
-    document.body.classList.toggle('no-scroll'); // Отключает скролл фона
+    document.body.classList.toggle('no-scroll');
   });
 
-  // Закрытие меню при клике на любой пункт
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('is-active');
@@ -269,5 +271,6 @@
     });
   });
 </script>
+
 </body>
 </html>
