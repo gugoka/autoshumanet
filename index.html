@@ -249,6 +249,41 @@
     </div>
   </footer>
 
+  <div class="modal-overlay" id="booking-modal">
+  <div class="modal-container">
+    
+    <button class="modal-close" id="modal-close-btn" aria-label="Закрыть окно">
+      <img src="./img/icons/frame-190.svg" alt="Закрыть" onerror="this.src='./frame-190.svg';" />
+    </button>
+
+    <div class="modal-content">
+      <h2 class="modal-title">Запишитесь на шумоизоляцию</h2>
+      
+      <form class="modal-form-box" action="#" method="POST">
+        <div class="modal-inputs-group">
+          <input type="text" name="client-name" class="modal-input" placeholder="Имя" required />
+          <input type="tel" name="client-phone" class="modal-input" placeholder="Номер телефона" required />
+        </div>
+        
+        <button type="submit" class="modal-submit-btn">Записаться</button>
+      </form>
+
+      <div class="modal-phone-block">
+        <div class="modal-phone-text">Или позвоните нам сами</div>
+        <a href="tel:+7XXXXXXXXXX" class="modal-phone-link">+7 (XXX) XX-XX-XX</a>
+      </div>
+    </div>
+
+    <div class="modal-logo">
+      <span>
+        <span class="modal-logo-span">AUTO</span><span class="modal-logo-span2">SHUMA</span><span class="modal-logo-span">NET</span>
+      </span>
+    </div>
+
+  </div>
+</div>
+
+
 
 
 <script>
@@ -270,6 +305,39 @@
       document.body.classList.remove('no-scroll');
     });
   });
+
+
+  // --- Логика Модального Окна (Формы записи) ---
+  const modal = document.getElementById('booking-modal');
+  const openModalBtns = document.querySelectorAll('.btn--primary, .card-btn');
+  const closeModalBtn = document.getElementById('modal-close-btn');
+
+  // Открытие модального окна при клике на ЛЮБУЮ кнопку "Записаться"
+  openModalBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault(); 
+      modal.classList.add('is-active');
+      document.body.classList.add('no-scroll'); 
+    });
+  });
+
+  // Закрытие окна по клику на крестик
+  closeModalBtn.addEventListener('click', () => {
+    modal.classList.remove('is-active');
+    document.body.classList.remove('no-scroll');
+  });
+
+  // Закрытие окна при клике на область вне формы
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('is-active');
+      document.body.classList.remove('no-scroll');
+    }
+  });
+
+
+
+
 </script>
 
 </body>
