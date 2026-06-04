@@ -1,0 +1,208 @@
+/* Шапка сайта */
+.header {
+  background: var(--151515, #151515);
+  height: auto;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo__img {
+  width: 160px;
+  height: auto;
+  display: block;
+}
+
+.nav__list {
+  display: flex;
+  gap: 30px;
+}
+
+.nav__link {
+  color: var(--white, #ffffff);
+  font-family: var(--shapka-podzagolovki-font-family, "Rubik-Regular", sans-serif);
+  font-size: var(--shapka-podzagolovki-font-size, 24px);
+  transition: color 0.3s ease;
+}
+
+.nav__link:hover {
+  color: var(--orange, #f07900);
+}
+
+.phone-link {
+  color: var(--orange, #f07900);
+  font-family: var(--shapka-podzagolovki-font-family, "Rubik-Regular", sans-serif);
+  font-size: var(--shapka-podzagolovki-font-size, 24px);
+  border: 2.5px solid var(--orange, #f07900);
+  border-radius: 10px;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+.phone-link:hover {
+  background: var(--orange, #f07900);
+  color: var(--white, #ffffff);
+}
+
+.hamburger {
+  display: none;
+}
+
+.mobile-menu-contacts {
+  display: none;
+}
+
+/* ==========================================================================
+   МЕДИА-ЗАПРОСЫ 
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .header__wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .nav__list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .about__wrapper,
+  .contacts__wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .footer__content {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .social-link {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  /* ====================================
+     1. Мобильная шапка и гамбургер-меню
+     ==================================== */
+  .header__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 25px 5px 15px;
+    
+  }
+
+  .header__contacts {
+    display: none; 
+  }
+
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001; 
+    padding: 0;
+  }
+
+  .hamburger span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--white, #ffffff);
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+
+  .hamburger.is-active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    background-color: var(--orange, #f07900);
+  }
+  .hamburger.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.is-active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    background-color: var(--orange, #f07900);
+  }
+
+  /* Выезжающая панель меню  */
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: var(--151515, #151515);
+    border-left: 1px solid var(--orange, #f07900); 
+    padding: 100px 30px 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 50px;
+    z-index: 1000;
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.6);
+  }
+
+  .nav.is-active {
+    right: 0; 
+  }
+
+  .nav__list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    align-items: flex-start;
+  }
+
+  .nav__link {
+    font-family: var(--zagolovki-font-family, "Rubik-Medium", sans-serif);
+    font-size: 22px;
+    color: var(--white, #ffffff);
+    font-weight: 500;
+  }
+
+  .nav__link:active {
+    color: var(--orange, #f07900);
+  }
+
+ 
+  .mobile-menu-contacts {
+    display: block;
+    margin-top: auto; 
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+  }
+
+  .mobile-menu-contacts .phone-link {
+    font-family: var(--knopki-font-family, "Rubik-Bold", sans-serif);
+    font-size: 18px;
+    color: var(--orange, #f07900);
+  }
+
+  body.no-scroll {
+    overflow: hidden;
+  }
+}

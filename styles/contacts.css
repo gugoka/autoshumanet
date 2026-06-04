@@ -1,0 +1,29 @@
+/* Контакты */
+.contacts__wrapper {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+.contacts__info {
+  flex: 1;
+}
+
+.contacts__address {
+  font-style: normal;
+  font-family: var(--osn-tekst-pk-font-family, "Ubuntu-Regular", sans-serif);
+  font-size: var(--osn-tekst-pk-font-size, 18px);
+  line-height: 1.8;
+}
+
+.contacts__address a {
+  color: var(--white, #ffffff);
+  border-bottom: 1px dashed var(--orange, #f07900);
+}
+
+.contacts__map {
+  flex: 1;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  overflow: hidden;
+}

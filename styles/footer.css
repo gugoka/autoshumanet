@@ -1,0 +1,83 @@
+/* Подвал  */
+.footer {
+  background: var(--podval-i-shapka, #1f1f1f);
+  padding: 40px 0 20px 0;
+  border-top: 2px solid var(--dark-orange, #d35100);
+}
+
+.footer__brand {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.footer__logo {
+  font-family: var(--zagolovki-font-family, "Rubik-Medium", sans-serif);
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.logo-white { color: var(--white, #ffffff); }
+.logo-orange { color: var(--light-orange, #f8a145); }
+
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer__title {
+  font-family: var(--zagolovki-font-family, "Rubik-Medium", sans-serif);
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.footer__links li {
+  margin-bottom: 12px;
+}
+
+.footer__links a {
+  color: var(--white, #ffffff);
+  font-family: var(--osn-tekst-pk-font-family, "Ubuntu-Regular", sans-serif);
+  font-size: 18px;
+}
+
+.footer__links a:hover,
+.social-link:hover {
+  color: var(--light-orange, #f8a145);
+}
+
+.social-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--white, #ffffff);
+  font-family: var(--osn-tekst-pk-font-family, "Ubuntu-Regular", sans-serif);
+  font-size: 18px;
+}
+
+.social-link img {
+  width: 35px;
+  height: auto;
+  object-fit: contain;
+}
+
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  text-align: center;
+}
+
+.copyright {
+  font-family: var(--shapka-podzagolovki-font-family, "Rubik-Regular", sans-serif);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+}

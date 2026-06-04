@@ -1,0 +1,22 @@
+/* О нас */
+.about__wrapper {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.about__content {
+  flex: 1;
+}
+
+.about__text p {
+  font-family: var(--osn-tekst-pk-font-family, "Ubuntu-Regular", sans-serif);
+  font-size: var(--osn-tekst-pk-font-size, 18px);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.about__image {
+  flex: 1;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
+}

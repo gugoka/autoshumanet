@@ -1,0 +1,79 @@
+/* Карточки услуг */
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.service-card {
+  background: var(--151515, #151515);
+  border: 0.75px solid var(--orange, #f07900);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card__image img {
+  width: 100%;
+  height: auto; 
+  aspect-ratio: 355 / 260; 
+  object-fit: cover;
+  display: block;
+}
+.service-card__content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.service-card__category {
+  font-family: var(--shapka-podzagolovki-font-family, "Rubik-Regular", sans-serif);
+  font-size: 20px;
+  color: var(--white, #ffffff);
+  margin-bottom: 5px;
+}
+
+.service-card__title {
+  font-family: "Ubuntu-Bold", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--light-orange, #f8a145);
+  margin-bottom: 15px;
+}
+
+.service-card__list {
+  font-family: var(--osn-tekst-pk-font-family, "Ubuntu-Regular", sans-serif);
+  font-size: var(--osn-tekst-pk-font-size, 18px);
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.service-card__list li {
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 15px;
+}
+
+.service-card__list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--orange, #f07900);
+}
+
+.service-card__price {
+  font-family: "Ubuntu-LightItalic", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--light-orange, #f8a145);
+  margin-bottom: 20px;
+}
+
+.card-btn {
+  width: 100%;
+}
