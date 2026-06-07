@@ -64,3 +64,35 @@ body {
   background: var(--navedenie, #ffa94d);
 }
 
+/* ==========================================================================
+   МЕДИА-ЗАПРОСЫ 
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .header__wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .nav__list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .about__wrapper,
+  .contacts__wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .footer__content {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .social-link {
+    justify-content: center;
+  }
+}
