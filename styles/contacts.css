@@ -21,24 +21,31 @@
   border-bottom: 1px dashed var(--orange, #f07900);
 }
 
+/* стили для контейнера карты */
 .contacts__map {
-  flex: 1;
-  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
+  width: 90%; 
+  max-width: 800px; 
+  margin: 40px auto; 
   border-radius: 5px;
   overflow: hidden;
 }
 
-.map-container {
-  width: 100%;
-  max-width: 1000px; 
-  margin: 40px auto; 
-  border-radius: 12px; 
-  overflow: hidden; 
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
+
+.contacts__map iframe {
+  width: 100% !important; 
+  display: block;
 }
 
+
 @media (max-width: 768px) {
-  .map-container iframe {
-    height: 350px;
+  .contacts__map {
+    margin: 20px 0; 
+    width: 100%;
+  }
+
+  .contacts__map iframe {
+    height: 350px; 
   }
 }
+
+
