@@ -1,8 +1,8 @@
+// --- Логика гамбургер-меню ---
 const hamburger = document.getElementById('hamburger-toggle');
   const nav = document.querySelector('.nav');
   const navLinks = document.querySelectorAll('.nav__link');
 
-  // Переключение меню по клику на гамбургер
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('is-active');
     nav.classList.toggle('is-active');

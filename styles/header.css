@@ -46,6 +46,9 @@
   border-radius: 10px;
   padding: 10px 20px;
   transition: all 0.3s ease;
+  
+  display: inline-block;
+  white-space: nowrap;  
 }
 
 .phone-link:hover {
@@ -64,9 +67,6 @@
 
 
 @media (max-width: 576px) {
-  /* ====================================
-     Мобильная шапка и гамбургер-меню
-     ==================================== */
   .header__wrapper {
     display: flex;
     flex-direction: row;
@@ -173,5 +173,26 @@
 
   body.no-scroll {
     overflow: hidden;
+  }
+}
+
+/* Адаптив для планшетов */
+@media (max-width: 992px) {
+
+  .logo__img {
+    width: 130px;
+  }
+
+  .nav__list {
+    gap: 15px;
+  }
+
+  .nav__link {
+    font-size: 18px; 
+  }
+
+  .phone-link {
+    font-size: 18px;
+    padding: 8px 15px;
   }
 }

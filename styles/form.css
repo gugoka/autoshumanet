@@ -1,8 +1,10 @@
-/* ======================================
-   ФОРМА ЗАПИСИ
-   ==================================== */
+/* Форма записи */
 .booking-modal {
-  display: none; 
+  display: flex; 
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease; 
+  
   position: fixed;
   top: 0;
   left: 0;
@@ -17,9 +19,10 @@
 }
 
 .booking-modal.is-active {
-  display: flex;
+  /* Показываем модалку */
+  opacity: 1;
+  visibility: visible;
 }
-
 
 .modal-content {
   background-color: var(--151515, #151515);
@@ -30,19 +33,17 @@
   padding: 40px 30px;
   position: relative;
   box-shadow: 0 10px 35px rgba(240, 121, 0, 0.25);
-  animation: modalFadeIn 0.35s ease-out;
+  
+  /* Начальное положение формы (чуть выше и прозрачная) */
+  transform: translateY(-25px);
+  opacity: 0;
+  transition: transform 0.35s ease-out, opacity 0.35s ease-out; 
 }
 
 
-@keyframes modalFadeIn {
-  from {
-    transform: translateY(-25px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+.booking-modal.is-active .modal-content {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 /* Кнопка-крестик */
@@ -69,7 +70,7 @@
   display: block;
 }
 
-/* Эффект при наведении (на десктопах) */
+/* эффект при наведении (на пк) */
 @media (hover: hover) {
   .modal-close-button:hover {
     color: var(--orange, #f07900); 
@@ -77,13 +78,12 @@
   }
 }
 
-/* Эффект при активном нажатии (для смартфонов) */
 .modal-close-button:active {
   color: var(--navedenie, #ffa94d);
   transform: scale(0.9);
 }
 
-/* Стилизация логотипа внутри формы */
+
 .modal-logo {
   text-align: center;
   font-family: var(--zagolovki-font-family, "Rubik-Medium", sans-serif);
@@ -101,7 +101,7 @@
   color: var(--light-orange, #f8a145);
 }
 
-/* Заголовок модального окна */
+
 .modal-title {
   color: var(--white, #ffffff);
   font-family: var(--zagolovki-font-family, "Rubik-Medium", sans-serif);
@@ -111,7 +111,7 @@
   margin-bottom: 28px;
 }
 
-/* Структура полей ввода */
+
 .modal-form {
   display: flex;
   flex-direction: column;
@@ -176,7 +176,7 @@
   transform: scale(0.98);
 }
 
-/* Нижняя текстовая зона и прямая кнопка вызова */
+
 .modal-footer-info {
   display: flex;
   flex-direction: column;

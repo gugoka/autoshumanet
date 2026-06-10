@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="./styles/contacts.css">
   <link rel="stylesheet" href="./styles/footer.css">
   <link rel="stylesheet" href="./styles/form.css">
+  <link rel="stylesheet" href="./styles/image_modal.css">
 </head>
 
 <body>
@@ -90,29 +91,9 @@
           </p>
         </div>
       </div>
-      
-
-    <div class="about__collage">
-      <div class="about__collage-item">
-        <img src="./img/about_us/about_us_1.jpg" alt="Этап шумоизоляции 1" />
+      <div class="about__image">
+        <img class="responsive-img" src="./img/about_us_main.png" alt="Процесс шумоизоляции" />
       </div>
-      <div class="about__collage-item">
-        <img src="./img/about_us/about_us_2.jpg" alt="Этап шумоизоляции 2" />
-      </div>
-      <div class="about__collage-item">
-        <img src="./img/about_us/about_us_3.jpg" alt="Этап шумоизоляции 3" />
-      </div>
-      <div class="about__collage-item">
-        <img src="./img/about_us/about_us_4.jpg" alt="Этап шумоизоляции 4" />
-      </div>
-      <div class="about__collage-item">
-        <img src="./img/about_us/about_us_5.jpg" alt="Этап шумоизоляции 5" />
-      </div>
-      <div class="about__collage-item">
-        <img src="./img/about_us/about_us_6.jpg" alt="Этап шумоизоляции 6" />
-      </div>
-    </div>
-
     </div>
   </section>
 
@@ -324,6 +305,19 @@
   </div>
 </div>
 <script src="./scripts/form.js"></script>
+
+<!-- Окно с увеличенным фото -->
+<div id="image-modal" class="image-modal">
+  <div class="image-modal-content">
+    <button id="image-modal-close-btn" class="modal-close-button" aria-label="Закрыть изображение">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <img id="fullscreen-image" src="" alt="Полноэкранное изображение">
+  </div>
+</div>
 
 </body>
 </html>
